@@ -1,4 +1,4 @@
-#include "Performance.h"
+#include "../include/Performance.h"
 #include <cstring>
 
 Performance::Performance() : duration(0), hasIntermission(false), actorCount(0), totalSeats(0) {
