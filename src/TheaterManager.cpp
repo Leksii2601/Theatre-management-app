@@ -1,3 +1,8 @@
+#include "../include/TheaterManager.h"
+#include <cstring>
+#include <iostream>
+
+
 TheaterManager::TheaterManager() : performanceCount(0), ticketCount(0) {}
 
 bool TheaterManager::isActorBusy(const char* actorName, const DateTime& startTime, const DateTime& endTime) const {
