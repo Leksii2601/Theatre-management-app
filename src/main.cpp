@@ -40,8 +40,8 @@ void inputDateTime(int& day, int& month, int& year, int& hour, int& minute) {
         cin >> minute;
 
         // Simple validation
-        if (day < 1  day > 31  month < 1  month > 12 
-            hour < 0  hour > 23  minute < 0 || minute > 59) {
+        if (day < 1 || day > 31 || month < 1 || month > 12 || 
+            hour < 0 || hour > 23 || minute < 0 || minute > 59) {
             cout << "Invalid date/time. Please try again.\n";
         }
         else {
