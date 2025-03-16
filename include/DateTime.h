@@ -1,5 +1,7 @@
 #pragma once
 #include <ctime>
+#include <iostream>
+using namespace std;
 
 struct DateTime {
     int day;
