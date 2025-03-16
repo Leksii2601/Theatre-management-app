@@ -1,6 +1,7 @@
 #pragma once
 #include <fstream>
-
+#include <iostream>
+using namespace std;
 extern const int MAX_NAME_LENGTH;
 
 struct Ticket {
