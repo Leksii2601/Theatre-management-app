@@ -1,7 +1,7 @@
-#include "DateTime.h"
-#include "Perfomance.h"
-#include "TheatherManager.h"
-#include "Ticket.h"
+#include ""../include/DateTime.h"
+#include ""../include/Perfomance.h"
+#include ""../include/TheaterManager.h"
+#include ""../include/Ticket.h"
 void showMenu() {
     cout << "\n==== Theater Management System ====\n";
     cout << "1. Add new performance\n";
