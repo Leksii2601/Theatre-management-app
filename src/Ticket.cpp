@@ -1,4 +1,4 @@
-#include "Ticket.h"
+#include "../include/Ticket.h"
 #include <cstring>
 
 Ticket::Ticket() : id(0), performanceIndex(-1), seatNumber(0), sold(false) {
