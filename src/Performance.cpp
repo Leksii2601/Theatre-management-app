@@ -86,28 +86,28 @@ DateTime Performance::getEndTime() const {
     DateTime end = dateTime;
     end.minute += duration;
 
-    // Adjust hours and minutes
+    
     while (end.minute >= 60) {
         end.minute -= 60;
         end.hour++;
     }
 
-    // Adjust days if needed
+   
     while (end.hour >= 24) {
         end.hour -= 24;
         end.day++;
     }
 
-    // Simple approximation for month lengths
+    
     const int daysInMonth[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-    // Check for leap year
+    
     int maxDays = daysInMonth[end.month];
     if (end.month == 2 && ((end.year % 4 == 0 && end.year % 100 != 0) || end.year % 400 == 0)) {
         maxDays = 29;
     }
 
-    // Adjust months
+    
     while (end.day > maxDays) {
         end.day -= maxDays;
         end.month++;
@@ -136,14 +136,14 @@ bool Performance::hasActor(const char* actorName) const {
 }
 
 bool Performance::overlapsWith(const Performance& other) const {
-    // If performance dates are different, no overlap
+    
     if (!dateTime.isOnSameDay(other.dateTime) &&
         !dateTime.isOnSameDay(other.getEndTime()) &&
         !getEndTime().isOnSameDay(other.dateTime)) {
         return false;
     }
 
-    // Check if one performance starts after the other ends
+    
     if (dateTime < other.getEndTime() && other.dateTime < getEndTime()) {
         return true;
     }
