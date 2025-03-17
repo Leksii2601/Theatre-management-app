@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-// Define MAX_NAME_LENGTH with a specific value
+
 #define MAX_NAME_LENGTH 100
 
 struct Ticket {
