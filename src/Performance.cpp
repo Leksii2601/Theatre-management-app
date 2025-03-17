@@ -6,7 +6,7 @@ Performance::Performance() : duration(0), hasIntermission(false), actorCount(0),
     description[0] = '\0';
 }
 
-void Performance::setName(const char* _name) {
+void Performance::setName(const char* _name) { // копіюємо назву вистави
     strncpy_s(name, MAX_NAME_LENGTH, _name, MAX_NAME_LENGTH - 1);
     name[MAX_NAME_LENGTH - 1] = '\0';
 }
@@ -82,17 +82,17 @@ const char* Performance::getDescription() const {
     return description;
 }
 
-DateTime Performance::getEndTime() const {
+DateTime Performance::getEndTime() const { //обчислює кінець вситави
     DateTime end = dateTime;
     end.minute += duration;
 
-    
+    // Adjust hours and minutes
     while (end.minute >= 60) {
         end.minute -= 60;
         end.hour++;
     }
 
-   
+   // Adjust days if needed
     while (end.hour >= 24) {
         end.hour -= 24;
         end.day++;
@@ -136,14 +136,14 @@ bool Performance::hasActor(const char* actorName) const {
 }
 
 bool Performance::overlapsWith(const Performance& other) const {
-    
+    // If performance dates are different, no overlap
     if (!dateTime.isOnSameDay(other.dateTime) &&
         !dateTime.isOnSameDay(other.getEndTime()) &&
         !getEndTime().isOnSameDay(other.dateTime)) {
         return false;
     }
 
-    
+    // Check if one performance starts after the other ends
     if (dateTime < other.getEndTime() && other.dateTime < getEndTime()) {
         return true;
     }
