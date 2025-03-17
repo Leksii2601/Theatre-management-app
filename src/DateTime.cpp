@@ -1,12 +1,12 @@
 #include ""../include/DateTime.h"
 
-bool DateTime::operator==(const DateTime& other) const {
+bool DateTime::operator==(const DateTime& other) const {//Перевіряє, чи два об'єкти DateTime представляють точно однаковий момент часу.
     return day == other.day && month == other.month &&
         year == other.year && hour == other.hour &&
         minute == other.minute;
 }
 
-bool DateTime::operator<(const DateTime& other) const {
+bool DateTime::operator<(const DateTime& other) const {//Визначає, чи поточна дата/час хронологічно передує іншій.
     if (year != other.year) return year < other.year;
     if (month != other.month) return month < other.month;
     if (day != other.day) return day < other.day;
@@ -18,7 +18,7 @@ bool DateTime::isOnSameDay(const DateTime& other) const {
     return day == other.day && month == other.month && year == other.year;
 }
 
-bool DateTime::isFuture() const {
+bool DateTime::isFuture() const {//Визначає, чи об'єкт DateTime представляє майбутній час відносно поточного системного часу.
     time_t now = time(nullptr);
     struct tm timeinfo;
     localtime_s(&timeinfo, &now);
